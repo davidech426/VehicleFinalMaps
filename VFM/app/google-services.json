@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "202807588192",
+    "firebase_url": "https://vehiclefinemaps.firebaseio.com",
+    "project_id": "vehiclefinemaps",
+    "storage_bucket": "vehiclefinemaps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202807588192:android:489b22557332e48e5c9a05",
+        "android_client_info": {
+          "package_name": "com.cmsc436.vehiclefinemaps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202807588192-9vvcnq7gqcc973lttosil3vq75voocvg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cmsc436.vehiclefinemaps",
+            "certificate_hash": "e2d0b902056caaffcada4b2820a393122f616717"
+          }
+        },
+        {
+          "client_id": "202807588192-8tgrop08tlf8mgveo53jslsqd5m6g032.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQZR28IHBhitiG5rrN5IqDBLw5FMFR0Iw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202807588192-8tgrop08tlf8mgveo53jslsqd5m6g032.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
