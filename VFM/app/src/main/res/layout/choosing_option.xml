@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#36458F">
+
+    <Button
+        android:id="@+id/btn_showprev"
+        android:layout_width="800px"
+        android:layout_height="400px"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="308dp"
+        android:background="#F2F4FA"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="Show Previous Drives"
+        android:textColor="#575252"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_letsDrive"
+        android:layout_width="800px"
+        android:layout_height="400px"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="164dp"
+        android:background="#F2F4FA"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="Let's Drive!"
+        android:textColor="#575252"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
