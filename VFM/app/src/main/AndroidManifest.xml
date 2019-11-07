@@ -20,6 +20,7 @@
         <activity android:name=".CreateAccountActivity"/>
         <activity android:name=".ForgotPasswordActivity"/>
         <activity android:name=".ChoosingOption"/>
+        <activity android:name=".StartUp"/>
 
         <meta-data
             android:name="preloaded_fonts"

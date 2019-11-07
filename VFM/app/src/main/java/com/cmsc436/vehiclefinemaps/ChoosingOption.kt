@@ -1,4 +1,5 @@
 package com.cmsc436.vehiclefinemaps
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -15,10 +16,12 @@ class ChoosingOption : AppCompatActivity() {
         setContentView(R.layout.choosing_option)
 
         LetsDriveBtn.setOnClickListener {
-
+            //Display current drive
+            val i = Intent()
         }
 
         ShowPreviousDrivesBtn.setOnClickListener {
+            //
 
         }
 
