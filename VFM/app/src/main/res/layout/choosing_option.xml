@@ -6,7 +6,9 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#36458F">
+    android:background="#36458F"
+    >
+
 
     <Button
         android:id="@+id/btn_showprev"
@@ -37,5 +39,6 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
