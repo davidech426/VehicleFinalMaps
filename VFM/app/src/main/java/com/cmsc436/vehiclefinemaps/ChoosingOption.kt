@@ -27,7 +27,8 @@ class ChoosingOption : AppCompatActivity() {
 
         LetsDriveBtn.setOnClickListener {
             //Display current drive
-            val i = Intent()
+            val i = Intent(this@ChoosingOption, LetsDrive::class.java)
+            startActivity(i)
         }
 
         ShowPreviousDrivesBtn.setOnClickListener {
