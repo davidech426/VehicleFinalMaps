@@ -32,8 +32,8 @@ class ChoosingOption : AppCompatActivity() {
         }
 
         ShowPreviousDrivesBtn.setOnClickListener {
-            //
-
+            val i = Intent(this@ChoosingOption,PreviousDrives::class.java)
+            startActivity(i)
         }
 
     }
