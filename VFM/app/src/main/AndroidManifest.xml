@@ -28,6 +28,7 @@
         <activity android:name=".ChoosingOption"/>
         <activity android:name=".StartUp"/>
         <activity android:name=".LetsDrive"/>
+        <activity android:name=".PreviousDrives"/>
 
         <meta-data
             android:name="preloaded_fonts"
