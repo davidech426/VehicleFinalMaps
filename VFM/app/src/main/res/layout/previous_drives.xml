@@ -13,7 +13,7 @@
 
         android:background="#F2F4FA"
         android:fontFamily="@font/open_sans_semibold"
-        android:text="Show Previous Drives"
+        android:text="Start Drive"
         android:textColor="#575252"
         android:textSize="18sp" />
 
@@ -25,7 +25,7 @@
         android:layout_marginLeft="88dp"
         android:background="#F2F4FA"
         android:fontFamily="@font/open_sans_semibold"
-        android:text="Let's Drive!"
+        android:text="End Drive"
         android:textColor="#575252"
         android:textSize="18sp" />
 
