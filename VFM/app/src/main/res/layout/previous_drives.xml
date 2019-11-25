@@ -4,31 +4,6 @@
     android:layout_height="match_parent">
 
 
-    <Button
-        android:id="@+id/btn_driveStart"
-        android:layout_width="400px"
-        android:layout_height="200px"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
-
-        android:background="#F2F4FA"
-        android:fontFamily="@font/open_sans_semibold"
-        android:text="Start Drive"
-        android:textColor="#575252"
-        android:textSize="18sp" />
-
-    <Button
-        android:id="@+id/btn_driveEnd"
-        android:layout_width="400px"
-        android:layout_height="200px"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
-        android:background="#F2F4FA"
-        android:fontFamily="@font/open_sans_semibold"
-        android:text="End Drive"
-        android:textColor="#575252"
-        android:textSize="18sp" />
-
     <ListView
         android:id="@+id/list"
         android:layout_width="fill_parent"

@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Button
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.cmsc436.vehiclefinemaps.R.id.btn_letsDrive
 import kotlinx.android.synthetic.main.choosing_option.*
@@ -32,6 +33,7 @@ class ChoosingOption : AppCompatActivity() {
         }
 
         ShowPreviousDrivesBtn.setOnClickListener {
+            Log.e("I'm here","I'm here")
             val i = Intent(this@ChoosingOption,PreviousDrives::class.java)
             startActivity(i)
         }
