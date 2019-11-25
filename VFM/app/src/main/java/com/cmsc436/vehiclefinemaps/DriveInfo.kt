@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import android.widget.Button
 
 
 import com.google.firebase.database.DatabaseReference
@@ -27,13 +28,26 @@ class DriveInfo : AppCompatActivity() {
     private var tvTime: TextView? = null
     private var tvAvgSpeed: TextView? = null
     private var tvLikelihood: TextView? = null
-
+    lateinit var DeleteBtn: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.drive_info)
+
         initialise()
+
+        DeleteBtn = findViewById<Button>(R.id.delete_button) as Button
+
+        DeleteBtn.setOnClickListener {
+            val mUser = mAuth!!.currentUser
+            val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
+            //delete the node (the specific drive) from the current user in firebase database
+            mUserReference.child("the drive id").removeValue()
+
+        }
+
+
     }
 
     private fun initialise() {

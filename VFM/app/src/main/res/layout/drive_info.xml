@@ -57,5 +57,13 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp" />
         </TableRow>
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Delete Drive from History"
+            />
     </TableLayout>
+
+
 </RelativeLayout>
