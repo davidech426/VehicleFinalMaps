@@ -35,16 +35,16 @@ class PreviousDrives : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.previous_drives)
-        /*listView=findViewById(R.id.list) as ListView
+        setContentView(R.layout.previous_drives)
+        listView=findViewById(R.id.list) as ListView
         adapter= ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1,listItems)
         listView.setAdapter(adapter)
-        initialize()*/
+        initialize()
 
     }
 
     private fun initialize(){
-        /*mDatabase = FirebaseDatabase.getInstance()
+        mDatabase = FirebaseDatabase.getInstance()
         mDatabaseReference = mDatabase!!.reference!!.child("Previous")
         mAuth = FirebaseAuth.getInstance()
 
@@ -73,7 +73,7 @@ class PreviousDrives : AppCompatActivity() {
         listView.setOnItemClickListener { parent, view, position,id ->
             val intent = Intent(this@PreviousDrives, DriveInfo::class.java)
             startActivity(intent)
-        }*/
+        }
     }
 
 
