@@ -34,8 +34,10 @@ class LoginActivity : AppCompatActivity() {
         Log.i("here", "login oncreate")
         super.onCreate(savedInstanceState)
 
-        val i = Intent(this@LoginActivity, StartUp::class.java)
-        startActivity(i)
+        if (!ChoosingOption.active) {
+            val i = Intent(this@LoginActivity, StartUp::class.java)
+            startActivity(i)
+        }
 
 
         setContentView(R.layout.login)
@@ -95,6 +97,13 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, "Enter all details", Toast.LENGTH_SHORT).show()
         }
     }
+
+   /* override fun onResume() {
+        super.onResume()
+        setContentView(R.layout.login)
+        mAuth!!.signOut()
+
+    }*/
 
     private fun updateUI() {
         val intent = Intent(this@LoginActivity, ChoosingOption::class.java)

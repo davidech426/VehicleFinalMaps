@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.cmsc436.vehiclefinemaps.R.id.btn_letsDrive
+import com.cmsc436.vehiclefinemaps.R.id.start
 import kotlinx.android.synthetic.main.choosing_option.*
 //import androidx.navigation.ui.AppBarConfiguration
 
@@ -17,7 +18,9 @@ class ChoosingOption : AppCompatActivity() {
 
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        active = true;
         super.onCreate(savedInstanceState)
         setContentView(R.layout.choosing_option)
 
@@ -56,8 +59,20 @@ class ChoosingOption : AppCompatActivity() {
                 true
             }
 
+            R.id.logout -> {
+
+                val i = Intent(this@ChoosingOption, LoginActivity::class.java)
+                startActivity(i)
+                true
+            }
+
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    companion object{
+
+        var active = false
     }
 
 
