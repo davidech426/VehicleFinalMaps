@@ -1,7 +1,9 @@
 package com.cmsc436.vehiclefinemaps
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 
@@ -27,9 +29,17 @@ class MainActivity : AppCompatActivity() {
     private var tvEmail: TextView? = null
     private var tvEmailVerifiied: TextView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.i("here", "main oncreate")
         super.onCreate(savedInstanceState)
+
+
+        val i = Intent(this@MainActivity, StartUp::class.java)
+        startActivity(i)
+
         setContentView(R.layout.activity_main)
         initialise()
+
+
     }
 
     private fun initialise() {

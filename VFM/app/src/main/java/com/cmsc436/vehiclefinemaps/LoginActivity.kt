@@ -31,7 +31,16 @@ class LoginActivity : AppCompatActivity() {
     private var mAuth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.i("here", "login oncreate")
         super.onCreate(savedInstanceState)
+
+        if(!ChoosingOption.active){
+            val i = Intent(this@LoginActivity, StartUp::class.java)
+            startActivity(i)
+        }
+
+
+
         setContentView(R.layout.login)
         initialise()
     }
@@ -91,7 +100,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun updateUI() {
-        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+        val intent = Intent(this@LoginActivity, ChoosingOption::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }
