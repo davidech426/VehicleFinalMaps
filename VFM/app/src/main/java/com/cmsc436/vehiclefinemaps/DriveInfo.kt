@@ -43,7 +43,8 @@ class DriveInfo : AppCompatActivity() {
             val mUser = mAuth!!.currentUser
             val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
             //delete the node (the specific drive) from the current user in firebase database
-            mUserReference.child("the drive id").removeValue()
+            val driveId=intent?.extras!!.getString("driveId")
+            mUserReference.child(driveId).removeValue()
 
         }
 
@@ -58,22 +59,25 @@ class DriveInfo : AppCompatActivity() {
         tvTime = findViewById<View>(R.id.tv_time) as TextView
         tvAvgSpeed = findViewById<View>(R.id.tv_avgspeed) as TextView
         tvLikelihood = findViewById<View>(R.id.tv_likelihood) as TextView
-    }
 
-    override fun onStart() {
-        super.onStart()
+
         val mUser = mAuth!!.currentUser
         val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
         //need to get the id of the sub table for the drive from previous drives
-        val mDriveReference= mUserReference.child("the drive id")
+        val prevDriveId=intent?.extras!!.getString("driveId")
+
+        val mDriveReference= mUserReference.child(prevDriveId)
         mDriveReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                tvDate!!.text = snapshot.child("date").value as String
-                tvTime!!.text = snapshot.child("time").value as String
-                //tvLikelihood!!.text = snapshot.child("likelihood").value as String
-               // tvAvgSpeed!!.text = snapshot.child("average speed").value as String
+                if(snapshot.child("date").value!=null && snapshot.child("time").value!=null){
+                    tvDate!!.text = snapshot.child("date").value as String
+                    tvTime!!.text = snapshot.child("time").value as String
+                }
             }
             override fun onCancelled(databaseError: DatabaseError) {}
         })
     }
+
+
+
 }

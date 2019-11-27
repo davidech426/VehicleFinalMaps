@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.collections.ArrayList
+import android.util.Log
 
 
 import com.google.firebase.database.DatabaseReference
@@ -19,7 +20,7 @@ import com.google.firebase.database.ValueEventListener
 class PreviousDrives : AppCompatActivity() {
 
 
-    lateinit var listItems: ArrayList<String>
+    var listItems: ArrayList<String> = ArrayList<String>()
     lateinit var adapter:ArrayAdapter<String>
     lateinit var listView: ListView
     lateinit var storedTime:String
@@ -36,10 +37,15 @@ class PreviousDrives : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.previous_drives)
+
+
         listView=findViewById(R.id.list) as ListView
-        adapter= ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1,listItems)
-        listView.setAdapter(adapter)
         initialize()
+
+        adapter= ArrayAdapter(this@PreviousDrives,android.R.layout.simple_list_item_1,listItems)
+        listView.setAdapter(adapter)
+
+        //initialize()
 
     }
 
@@ -56,24 +62,34 @@ class PreviousDrives : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 //iterate over all the previous drives of that user and get there date.time.duration
                 for(postSnapshot in snapshot.children){
-                    storedDate = postSnapshot.child("date").value as String
-                    storedTime = postSnapshot.child("time").value as String
-                    storedDuration= postSnapshot.child("duration").value as String
+                    if(postSnapshot.child("date").value!=null && postSnapshot.child("time").value!=null &&
+                        postSnapshot.child("duration").value!=null){
+                            storedDate = postSnapshot.child("date").value as String
+                            storedTime = postSnapshot.child("time").value as String
+                            storedDuration= postSnapshot.child("duration").value as String
+                    }
 
-                    listItems.add(storedDate + "/" + storedTime + "/" + storedDuration)
+                    listItems.add("Date: "+storedDate + "  Time: " + storedTime + "  " +
+                            "       Duration: " + storedDuration)
                     adapter.notifyDataSetChanged()
+
+                    //this makes each listView clickable and opens a new Activity that shows the information
+                    // of each previous drive
+                    listView.setOnItemClickListener { parent, view, position,id ->
+                        val intent = Intent(this@PreviousDrives, DriveInfo::class.java)
+                        var driveId=postSnapshot.key as String
+                        //var listItem=listView.getItemAtPosition(position)
+                        intent.putExtra("driveId",driveId)
+                        startActivity(intent)
+
+                    }
                 }
 
             }
             override fun onCancelled(databaseError: DatabaseError) {}
         })
 
-        //this makes each listView clickable and opens a new Activity that shows the information
-        // of each previous drive
-        listView.setOnItemClickListener { parent, view, position,id ->
-            val intent = Intent(this@PreviousDrives, DriveInfo::class.java)
-            startActivity(intent)
-        }
+
     }
 
 
