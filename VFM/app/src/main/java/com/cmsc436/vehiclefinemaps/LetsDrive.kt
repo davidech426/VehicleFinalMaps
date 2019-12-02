@@ -71,7 +71,7 @@ class LetsDrive : AppCompatActivity(){
     var limit = 0.0f
     var speed = 56.0f
 
-    var avSpeed = 0.0f
+    var avSpeed = 0
     var avRisk = 0.0f
     var counter = 0
 
@@ -147,6 +147,7 @@ class LetsDrive : AppCompatActivity(){
                 findViewById<Button>(R.id.end_button).visibility = View.GONE
                 findViewById<Button>(R.id.start_btn).visibility = View.VISIBLE
                 mainHandler.removeCallbacksAndMessages(null)
+                handler.removeCallbacksAndMessages(null)
             } else {
                 findViewById<Button>(R.id.end_button).visibility = View.VISIBLE
                 findViewById<Button>(R.id.start_btn).visibility = View.GONE
@@ -167,7 +168,7 @@ class LetsDrive : AppCompatActivity(){
             );
             val date= SimpleDateFormat("M/dd/yyyy")
             dateOfDrive=date.format(Date())
-            val time= SimpleDateFormat("hh:mm:ss")
+            val time= SimpleDateFormat("hh:mm:ss a")
             timeOfDrive=time.format(Date())
 
 
@@ -192,8 +193,8 @@ class LetsDrive : AppCompatActivity(){
             currentUser.child(driveId).child("date").setValue(dateOfDrive)
             currentUser.child(driveId).child("time").setValue(timeOfDrive)
             currentUser.child(driveId).child("duration").setValue(durationFormat)
-            //currentUser.child(driveId).child("speed").setValue(avSpeed)
-            //currentUser.child(driveId).child("likelihood").setValue(avRisk)
+            currentUser.child(driveId).child("speed").setValue(avSpeed)
+            currentUser.child(driveId).child("likelihood").setValue(avRisk)
 
 
         }
@@ -252,7 +253,7 @@ class LetsDrive : AppCompatActivity(){
                         text.setText(risk.toString() + "%")
                         counter += 1
                         avRisk += risk
-                        avSpeed += speed
+                        avSpeed += speed as Int
                     }
                 }
             } else {
