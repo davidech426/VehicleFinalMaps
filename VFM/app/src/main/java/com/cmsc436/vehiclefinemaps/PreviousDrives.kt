@@ -58,7 +58,7 @@ class PreviousDrives : AppCompatActivity() {
         //this renders what's inside database to the list view
         val mUser = mAuth!!.currentUser
         val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
-        mUserReference.addValueEventListener(object : ValueEventListener {
+        mUserReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 //iterate over all the previous drives of that user and get there date.time.duration
                 for(postSnapshot in snapshot.children){
