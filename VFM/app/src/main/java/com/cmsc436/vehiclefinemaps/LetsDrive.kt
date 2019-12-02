@@ -344,12 +344,12 @@ class LetsDrive : AppCompatActivity(){
             val ret = URL(request).readText()
             Log.d("response", ret)
             var retParsed = ret.substringAfter(""""speedLimit":""")
-            if (retParsed != null) {
+            if (retParsed != null && retParsed != ret) {
                 retParsed = retParsed.substringBefore(".")
             }
-            if (retParsed != null) {
+            if (retParsed != null && retParsed != ret) {
                 limit = retParsed.toFloat()
-                limit *= 2.237f
+                limit *= 2.237f //converting from meters per second to miles per hour
             }
 
         }
