@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    tools:context="com.cmsc436.vehiclefinemaps.MainActivity">
+    tools:context="com.cmsc436.vehiclefinemaps.MainActivity"
+    android:background="@drawable/backgroundcmsc4362">
     <TableLayout
         android:id="@+id/tl_data"
         android:layout_width="match_parent"

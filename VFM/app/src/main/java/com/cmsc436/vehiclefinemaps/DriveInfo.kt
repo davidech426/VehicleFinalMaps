@@ -67,7 +67,7 @@ class DriveInfo : AppCompatActivity() {
         val prevDriveId=intent?.extras!!.getString("driveId")
 
         val mDriveReference= mUserReference.child(prevDriveId)
-        mDriveReference.addValueEventListener(object : ValueEventListener {
+        mDriveReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.child("date").value!=null && snapshot.child("time").value!=null){
                     tvDate!!.text = snapshot.child("date").value as String
