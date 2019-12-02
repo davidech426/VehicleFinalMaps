@@ -69,7 +69,7 @@ class PreviousDrives : AppCompatActivity() {
                             storedDuration= postSnapshot.child("duration").value as String
                     }
 
-                    listItems.add("Date: "+storedDate + "  Time: " + storedTime + "  " +
+                    listItems.add("Date: "+storedDate + "  Time: " + storedTime + "\n" +
                             "       Duration: " + storedDuration)
                     adapter.notifyDataSetChanged()
 

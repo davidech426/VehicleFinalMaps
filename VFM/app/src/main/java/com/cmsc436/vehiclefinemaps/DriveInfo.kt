@@ -69,9 +69,12 @@ class DriveInfo : AppCompatActivity() {
         val mDriveReference= mUserReference.child(prevDriveId)
         mDriveReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.child("date").value!=null && snapshot.child("time").value!=null){
+                if(snapshot.child("date").value!=null && snapshot.child("time").value!=null
+                    && snapshot.child("speed").value!=null && snapshot.child("likelihood").value!=null){
                     tvDate!!.text = snapshot.child("date").value as String
                     tvTime!!.text = snapshot.child("time").value as String
+                    tvAvgSpeed!!.text=snapshot.child("speed").value as String
+                    tvLikelihood!!.text=snapshot.child("likelihood").value as String
                 }
             }
             override fun onCancelled(databaseError: DatabaseError) {}
