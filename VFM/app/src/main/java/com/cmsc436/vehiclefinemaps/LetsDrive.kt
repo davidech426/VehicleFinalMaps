@@ -36,6 +36,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import java.net.URL
+import kotlin.math.roundToInt
 
 
 class LetsDrive : AppCompatActivity(){
@@ -68,8 +69,8 @@ class LetsDrive : AppCompatActivity(){
     var lng1: Double? = null
     var lng2: Double? = null
 
-    var limit = 0.0f
-    var speed = 56.0f
+    var limit = 0
+    var speed = 56
 
     var avSpeed = 0
     var avRisk = 0.0f
@@ -190,6 +191,9 @@ class LetsDrive : AppCompatActivity(){
             //should create a unique key value
             val driveId=currentUser.push().key as String
 
+            avRisk /= counter
+            avSpeed /= counter
+
             currentUser.child(driveId).child("date").setValue(dateOfDrive)
             currentUser.child(driveId).child("time").setValue(timeOfDrive)
             currentUser.child(driveId).child("duration").setValue(durationFormat)
@@ -228,12 +232,12 @@ class LetsDrive : AppCompatActivity(){
                         //val speed = location.speed as Float
                         var risk = 0.0f
                         if (speed > limit) {
-                            val diff = speed - limit
+                            val diff = (speed - limit).toFloat()
                             if (limit < 55) {
                                 if (diff <= 16) {
-                                    risk = ((diff / 32) * 100)
+                                    risk = ((diff / 32f) * 100f)
                                 } else {
-                                    risk = ((diff / 55) + .5f) * 100f
+                                    risk = ((diff / 55f) + .5f) * 100f
                                     if (risk > 100f) {
                                         risk = 100f
                                     }
@@ -250,6 +254,7 @@ class LetsDrive : AppCompatActivity(){
                                 }
                             }
                         }
+                        risk = risk.roundToInt().toFloat()
                         text.setText(risk.toString() + "%")
                         counter += 1
                         avRisk += risk
@@ -349,8 +354,9 @@ class LetsDrive : AppCompatActivity(){
                 retParsed = retParsed.substringBefore(".")
             }
             if (retParsed != null && retParsed != ret) {
-                limit = retParsed.toFloat()
-                limit *= 2.237f //converting from meters per second to miles per hour
+                var limitMPS = retParsed.toFloat()
+                limitMPS *= 2.237f
+                limit = limitMPS.toInt()
             }
 
         }

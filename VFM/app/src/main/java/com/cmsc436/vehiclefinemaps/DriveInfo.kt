@@ -73,8 +73,8 @@ class DriveInfo : AppCompatActivity() {
                     && snapshot.child("speed").value!=null && snapshot.child("likelihood").value!=null){
                     tvDate!!.text = snapshot.child("date").value as String
                     tvTime!!.text = snapshot.child("time").value as String
-                    tvAvgSpeed!!.text=snapshot.child("speed").value as String
-                    tvLikelihood!!.text=snapshot.child("likelihood").value as String
+                    tvAvgSpeed!!.text=snapshot.child("speed").value.toString()
+                    tvLikelihood!!.text=snapshot.child("likelihood").value.toString()
                 }
             }
             override fun onCancelled(databaseError: DatabaseError) {}
