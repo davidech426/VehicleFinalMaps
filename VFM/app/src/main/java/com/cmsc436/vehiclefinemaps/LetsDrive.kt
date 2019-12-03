@@ -70,7 +70,7 @@ class LetsDrive : AppCompatActivity(){
     var lng2: Double? = null
 
     var limit = 0
-    var speed = 56
+    var speed = 40
 
     var avSpeed = 0
     var avRisk = 0.0f
@@ -114,7 +114,15 @@ class LetsDrive : AppCompatActivity(){
 
 
         startBtn.setOnClickListener{
-            buttonCount++;
+
+            buttonCount++
+
+            speed = 45
+            limit = 0
+            avRisk = 0f
+            avSpeed = 0
+
+            counter = 0
 
             if (buttonCount % 2 == 0) {
 
@@ -142,13 +150,14 @@ class LetsDrive : AppCompatActivity(){
         }
 
         endBtn.setOnClickListener{
-            buttonCount++;
+            buttonCount++
 
             if (buttonCount % 2 == 0) {
                 findViewById<Button>(R.id.end_button).visibility = View.GONE
                 findViewById<Button>(R.id.start_btn).visibility = View.VISIBLE
                 mainHandler.removeCallbacksAndMessages(null)
                 handler.removeCallbacksAndMessages(null)
+
             } else {
                 findViewById<Button>(R.id.end_button).visibility = View.VISIBLE
                 findViewById<Button>(R.id.start_btn).visibility = View.GONE
@@ -231,7 +240,10 @@ class LetsDrive : AppCompatActivity(){
                         //speed is not set within emulator
                         //val speed = location.speed as Float
                         var risk = 0.0f
-                        if (speed > limit) {
+
+                        if(limit == 0){
+                            risk = 0f
+                        } else if (speed > limit) {
                             val diff = (speed - limit).toFloat()
                             if (limit < 55) {
                                 if (diff <= 16) {
@@ -354,14 +366,18 @@ class LetsDrive : AppCompatActivity(){
                 retParsed = retParsed.substringBefore(".")
             }
             if (retParsed != null && retParsed != ret) {
+                Log.d("SPEED", retParsed.toString())
                 var limitMPS = retParsed.toFloat()
                 limitMPS *= 2.237f
                 limit = limitMPS.toInt()
+                Log.d("SPEED", limit.toString())
+
             }
 
         }
         lat1 = lat2
         lng1 = lng2
+        speed += 5
     }
 
 }

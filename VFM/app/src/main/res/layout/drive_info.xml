@@ -11,10 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TableRow>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Date : "
+                android:textColor="#FFEBEE"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/tv_date"
@@ -23,10 +25,12 @@
                 android:textSize="20sp" />
         </TableRow>
         <TableRow>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Time : "
+                android:textColor="#FFEBEE"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/tv_time"
@@ -35,10 +39,12 @@
                 android:textSize="20sp" />
         </TableRow>
         <TableRow>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Average Speed : "
+                android:textColor="#FFEBEE"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/tv_avgspeed"
@@ -47,10 +53,12 @@
                 android:textSize="20sp" />
         </TableRow>
         <TableRow>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Likelihood % : "
+                android:textColor="#FFEBEE"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/tv_likelihood"
